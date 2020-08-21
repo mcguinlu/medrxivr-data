@@ -1,4 +1,4 @@
-name: Build README
+name: Take snapshot
 
 on:
   push:
@@ -29,5 +29,5 @@ jobs:
         git diff
         git config --global user.email "github-action-bot@example.com"
         git config --global user.name "GitHub Action Bot"
-        git commit -m "Updated README" -a || echo "No changes to commit"
+        git commit -m "Daily snapshot: `date +'%Y-%m-%d %H:%M`" -a || echo "No changes to commit"
         git push
