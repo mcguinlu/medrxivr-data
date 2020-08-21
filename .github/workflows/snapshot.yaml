@@ -22,7 +22,7 @@ jobs:
         Rscript -e "install.packages('devtools')"
         Rscript -e "devtools::install_github(\"mcguinlu/medrxivr\")"
         Rscript -e "install.packages('dplyr')"
-        Rscript -e "source("snapshot_GHA.R")"
+        Rscript -e "source(\"snapshot_GHA.R\")"
     - name: Commit and push if changed
       run: |-
         git add .
