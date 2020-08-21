@@ -12,8 +12,7 @@ library(utf8) # Unicode Text Processing
 
 
 # set working directory
-WORKING_DIR <- readLines("keys/WORKING_DIR.txt")
-setwd(WORKING_DIR)
+setwd("C:/Users/lm16564/OneDrive - University of Bristol/Documents/rrr/medrxivr-data")
 
 # Read in credentials
 PUSHOVER_USER <- readLines("keys/PUSHOVER_USER.txt")
