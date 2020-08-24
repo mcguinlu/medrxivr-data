@@ -17,7 +17,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: r-lib/actions/setup-r@v1
-    - uses: ajilraju/action-date@v0.0.1
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M')"
     - name: Update README
       run: |-
         Rscript -e "install.packages('devtools')"
@@ -30,5 +32,5 @@ jobs:
         git diff
         git config --global user.email "github-action-bot@example.com"
         git config --global user.name "GitHub Action Bot"
-        git commit -m "Daily snapshot: `date +'%Y-%m-%d %H:%M'`" -a || echo "No changes to commit"
+        git commit -m "Daily snapshot: ${{ steps.date.outputs.date }}" -a || echo "No changes to commit"
         git push
